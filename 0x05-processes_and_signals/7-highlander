@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script is displaying the PID of all the bash processes
+for (( i=0;;i++ ))
+do echo "To infinity and beyond"
+trap "echo I am invincible!!!" SIGTERM
+sleep 2
+done
