@@ -1,0 +1,3 @@
+sudo emacs /etc/ssh/sshd_config
+PasswordAuthentication no
+sudo service ssh restart
