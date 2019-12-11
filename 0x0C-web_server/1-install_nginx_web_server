@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#bash script that install nginx and configures the web server
+#ssh ubuntu@34.73.35.58 -i /home/vagrant/.ssh/holberton
+sudo apt-get update
+sudo apt-get -y install nginx
+echo 'holberton school' > /var/www/html/hs.html
+sudo service nginx restart
