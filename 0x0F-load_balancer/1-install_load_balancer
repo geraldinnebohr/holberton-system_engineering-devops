@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#Install and configure HAProxy on a server
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.8
+sudo apt-get -y update
+sudo apt-get -y install haproxy=1.8.\*
+sudo service haproxy start
+echo "frontend haproxynode
+        bind *:80
+        mode http
+        default_backend backendnodes
+
+backend backendnodes
+        balance roundrobin
+        server 928-web-01 34.73.35.58:80 check
+        server 928-web-02 34.74.63.9:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
