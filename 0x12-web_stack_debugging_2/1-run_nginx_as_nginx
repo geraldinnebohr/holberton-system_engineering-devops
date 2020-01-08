@@ -3,6 +3,8 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
-sudo chmod 600 /etc/nginx/nginx.conf
+sudo chmod 755 /etc/nginx/nginx.conf
 sudo sed -i 's/#user www-data;/user ngix;/' /etc/nginx/nginx.conf
-sudo service nginx restart
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+sudo -u 'nginx' service nginx start
