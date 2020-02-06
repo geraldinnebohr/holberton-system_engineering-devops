@@ -8,9 +8,9 @@ def number_of_subscribers(subreddit):
     headers = {"User-Agent": "geraldinnebohr"}
     subs = requests.get('https://reddit.com/r/' + subreddit + '/about.json',
                         headers=headers, allow_redirects=True)
-    subs_json = subs.json()
-    if subs_json['kind'] == 'Listing':
+    if subs.status_code == 404:
         return 0
+    subs_json = subs.json()
     subs_data = subs_json['data']
     subs_amount = subs_data['subscribers']
     return subs_amount
