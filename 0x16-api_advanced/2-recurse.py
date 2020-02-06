@@ -9,11 +9,11 @@ def recurse(subreddit, hot_list=[], page=None):
 
     if page:
         sub = requests.get('https://reddit.com/r/' + subreddit +
-                               '/hot.json?after=' + page,
-                               headers=headers)
+                           '/hot.json?after=' + page,
+                           headers=headers)
     else:
         sub = requests.get('https://reddit.com/r/' + subreddit +
-                               '/hot.json', headers=headers)
+                           '/hot.json', headers=headers)
 
     if sub.status_code == 404:
         return None
@@ -29,4 +29,4 @@ def recurse(subreddit, hot_list=[], page=None):
 
     if page:
         recurse(subreddit, hot_list, page)
-        return hot_list
+    return hot_list
