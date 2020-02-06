@@ -10,6 +10,7 @@ def top_ten(subreddit):
                          '/hot.json?sort=hot&limit=10', headers=headers)
     if title.status_code == 404:
         print(None)
+        return
     title_json = title.json()
     title_data = title_json['data']
     title_children = title_data['children']
